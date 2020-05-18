@@ -1,0 +1,6 @@
+framework module HISearchBar {
+  umbrella header "HISearchBar-umbrella.h"
+
+  export *
+  module * { export * }
+}
