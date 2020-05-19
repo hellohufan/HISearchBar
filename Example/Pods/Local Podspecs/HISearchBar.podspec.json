@@ -18,5 +18,10 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "HISearchBar/Classes/**/*"
+  "source_files": "HISearchBar/Classes/**/*",
+  "resource_bundles": {
+    "HISearchBar": [
+      "HISearchBar/Assets/*.png"
+    ]
+  }
 }

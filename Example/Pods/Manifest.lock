@@ -34,7 +34,7 @@ SPEC CHECKSUMS:
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   "Expecta+Snapshots": dcff217eef506dabd6dfdc7864ea2da321fafbb8
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HISearchBar: a8f2d822fe9f1b962ea8a40388d5eeebec0aa878
+  HISearchBar: e4761b9d779b324dfb8ac915cd2cdfaa1f775d43
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
 PODFILE CHECKSUM: daee70290994e3374e0c9a830049dfab6d237d64

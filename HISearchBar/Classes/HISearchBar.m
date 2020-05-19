@@ -7,6 +7,7 @@
 //
 
 #import "HISearchBar.h"
+
 @interface HISearchBar()<UITextFieldDelegate>
 {
     UITextField *_textField;
@@ -123,13 +124,16 @@
         
     }else{
         _iconCenterView.hidden = YES;
-        @weakify(self)
+        NSBundle *bundle = [NSBundle bundleForClass:[HISearchBar class]];
+        NSURL *bundleURL = [bundle URLForResource:@"HISearchBar" withExtension:@"bundle"];
+        NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+        UIImage *img = [UIImage imageNamed:@"HISearchBar_ICON" inBundle:resourceBundle compatibleWithTraitCollection:nil];
         [UIView animateWithDuration:1 animations:^{
-            _textField.textAlignment = NSTextAlignmentLeft;
-            _iconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"HISearchBar_ICON"]];
-            _iconView.contentMode = UIViewContentModeScaleAspectFit;
-            _textField.leftView = _iconView;
-            _textField.leftViewMode =  UITextFieldViewModeAlways;
+            self->_textField.textAlignment = NSTextAlignmentLeft;
+            self->_iconView = [[UIImageView alloc]initWithImage:img];
+            self->_iconView.contentMode = UIViewContentModeScaleAspectFit;
+            self->_textField.leftView = self->_iconView;
+            self->_textField.leftViewMode =  UITextFieldViewModeAlways;
         }];
     }
 }
@@ -219,8 +223,8 @@
         self.iconAlign = HISearchBarIconAlignLeft;
     }
     [UIView animateWithDuration:0.1 animations:^{
-        _cancelButton.hidden = NO;
-        _textField.frame = CGRectMake(7, 7, _cancelButton.frame.origin.x-7, 30);
+        self->_cancelButton.hidden = NO;
+        self->_textField.frame = CGRectMake(7, 7, self->_cancelButton.frame.origin.x-7, 30);
         
     }];
     if (self.delegate && [self.delegate respondsToSelector:@selector(searchBarShouldBeginEditing:)]){
@@ -248,8 +252,8 @@
     }
     
     [UIView animateWithDuration:0.1 animations:^{
-        _cancelButton.hidden = YES;
-        _textField.frame = CGRectMake(7, 7, self.frame.size.width-7*2, 30);
+        self->_cancelButton.hidden = YES;
+        self->_textField.frame = CGRectMake(7, 7, self.frame.size.width-7*2, 30);
     }];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(searchBarTextDidEndEditing:)]){
